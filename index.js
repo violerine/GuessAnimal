@@ -12,7 +12,6 @@ var guessed=document.getElementById("guessed")
 var clue=document.getElementById("clue")
 var content=document.getElementById("content")
 var image=document.getElementById("image")
-var status=document.getElementById("status")
 var reset=document.getElementById("reset")
 var lives = 5
 //str buat nampung words yg salah
@@ -86,7 +85,6 @@ function myFunction(){
     content.innerHTML=nampungStripeStr
     selector.value=""
         if(nampungStripeStr===words){
-            status.innerHTML= "Correct!"
             image.src="Img/15292704.png";
             reset.value="Continue"
             // resetgame()       
