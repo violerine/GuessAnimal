@@ -91,7 +91,7 @@ function myFunction(){
             // alert(nampungStripeStr)
             // content.innerHTML=nampungStripeStr
             image.src="Img/15292704.png";
-            alert("You win! The animal is "+ words + "<br>"+ "Guess Next Animal!")
+            alert("You win! The animal is "+ words +". "+ "Guess Next Animal!")
             resetgame()       
         }
     
