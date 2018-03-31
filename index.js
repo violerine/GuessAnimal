@@ -2,7 +2,6 @@ var allWords =["dog","cat","duck","skunk","pig","hedgehog","rabbit","elephant","
 var index=parseInt(Math.random()*allWords.length)
 var words = allWords[index]
 var stripe=words.length
-console.log(words)
 var indexWords=0
 var body=document.body
 var selector= document.getElementById("inputnya")
@@ -12,7 +11,10 @@ var clue=document.getElementById("clue")
 var content=document.getElementById("content")
 var image=document.getElementById("image")
 var lives = 5
+//str buat nampung words yg salah
 var str=""
+
+
 
 var nampungStripe=[]
 var nampungStripeStr=""
@@ -23,7 +25,9 @@ for(var j=0; j<stripe; j++){
 }
 
 content.innerHTML=nampungStripeStr
+
 console.log(nampungStripe)
+console.log(nampungStripeStr)
 
 switch(words){
     case "dog":
@@ -63,7 +67,7 @@ function myFunction(){
         resetgame()
     }
 
-    else if(nampungStripe.indexOf(selector.value)==-1){
+    else if(nampungStripe.indexOf(selector.value)==-1 && selector.value!==""){
     image.src="Img/15292697.png";
     lives-=1
     str+=selector.value
@@ -73,6 +77,7 @@ function myFunction(){
     }
 
     else {
+    // alert(words)
     image.src="Img/15292693.png"
     var content=document.getElementById("content")
     nampungStripeStr=""
@@ -81,25 +86,13 @@ function myFunction(){
     }
     content.innerHTML=nampungStripeStr
     selector.value=""
-        if(indexWords===words.length-1){
+        if(nampungStripeStr===words){
+            // content=document.getElementById("content")
+            // alert(nampungStripeStr)
+            // content.innerHTML=nampungStripeStr
             image.src="Img/15292704.png";
-            var content=document.getElementById("content")
-            nampungStripeStr=""
-            for(var z=0; z<stripe; z++){
-                nampungStripe.push("_ ")
-                nampungStripeStr+=("_ ")
-            }
-            content.innerHTML=nampungStripeStr
-            alert("You win! The animal is "+ words)
-            index=parseInt(Math.random()*allWords.length)
-            words = allWords[index]
-            indexWords=0
-            lives=5
-            liveId.innerHTML=lives
-            alert("Guess Next Animal! ")
-        }
-        else{
-            indexWords+=1
+            alert("You win! The animal is "+ words + "<br>"+ "Guess Next Animal!")
+            resetgame()       
         }
     
     }
@@ -107,14 +100,44 @@ function myFunction(){
 }
 
 function resetgame(){
-    var index=0
-    var indexWords=0
+    index=parseInt(Math.random()*allWords.length)
     words = allWords[index]
     str=""
     lives=5
     liveId.innerHTML=lives
     guessed.innerHTML=str
-    
+    stripe=words.length
+    nampungStripe=[]
+    nampungStripeStr=""
+
+for(var j=0; j<stripe; j++){
+    nampungStripe.push("_ ")
+    nampungStripeStr+=("_ ")
+}
+content.innerHTML=nampungStripeStr
+
+switch(words){
+    case "dog":
+    clue.innerHTML ="It barks"; break;
+    case "cat":
+    clue.innerHTML="It meows"; break;
+    case "duck":
+    clue.innerHTML="quack quack"; break;
+    case "skunk":
+    clue.innerHTML="It smells to protect itself"; break;
+    case "pig":
+    clue.innerHTML="bath in the mud"; break;
+    case "hedgehog":
+    clue.innerHTML="It is spikey"; break;
+    case "rabbit":
+    clue.innerHTML="It hops and eat carrots"; break;
+    case "elephant":
+    clue.innerHTML="Biggest animals in the zoo"; break;
+    case "monkey":
+    clue.innerHTML="Love bananas"; break;
+}
+
+
 }
 
 
