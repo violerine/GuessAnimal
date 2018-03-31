@@ -11,20 +11,33 @@
     <div id="isinya">
     <h1>Guess Animals with this clue :</h1><div id="clue"></div><br>
     <p id="content"></p>
-
         Type your letter here : <br><br>
         <input id="inputnya" type="text" maxlength="1" style="text-transform:uppercase"  >
         <input type="button" onclick="myFunction()" value="answer"><br><br>
         Lives :<div id="lives">5</div><br>
         Words Guessed: <br>
         <div id="guessed"></div><br><br>
-        <input type="button" onclick="resetgame()" value="reset game">
+        <p id="status"></p><br><br>
+        <input id="reset" type="button" onclick="resetgame()" value="Reset game">
     </div>
+
     <img src="Img/15292695.png" id="image" >
-  <script src="index.js"></script>
   <audio autoplay>
       <source src="music/Rewind 2017.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
-    </audio>
+  </audio>
+  <script src="index.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+      if (document.getElementById("inputnya").value != null)
+        {
+          $(document.getElementById("inputnya")).change(function(){
+              document.getElementById("inputnya").value;
+              myFunction();
+            })
+        };
+    });
+    </script>
   </body>
 </html>

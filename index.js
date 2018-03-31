@@ -1,4 +1,6 @@
-var allWords =["dog","cat","duck","skunk","pig","hedgehog","rabbit","elephant","monkey"]
+
+
+var allWords =["dog","cat","duck","panda","pig","hedgehog","rabbit","elephant","monkey"]
 var index=parseInt(Math.random()*allWords.length)
 var words = allWords[index]
 var stripe=words.length
@@ -10,14 +12,15 @@ var guessed=document.getElementById("guessed")
 var clue=document.getElementById("clue")
 var content=document.getElementById("content")
 var image=document.getElementById("image")
+var status=document.getElementById("status")
+var reset=document.getElementById("reset")
 var lives = 5
 //str buat nampung words yg salah
 var str=""
-
-
-
 var nampungStripe=[]
 var nampungStripeStr=""
+
+
 
 for(var j=0; j<stripe; j++){
     nampungStripe.push("_ ")
@@ -25,21 +28,17 @@ for(var j=0; j<stripe; j++){
 }
 
 content.innerHTML=nampungStripeStr
-
-console.log(nampungStripe)
-console.log(nampungStripeStr)
-
 switch(words){
     case "dog":
     clue.innerHTML ="It barks"; break;
     case "cat":
     clue.innerHTML="It meows"; break;
     case "duck":
-    clue.innerHTML="quack quack"; break;
-    case "skunk":
-    clue.innerHTML="It smells to protect itself"; break;
+    clue.innerHTML="Quack quack"; break;
+    case "panda":
+    clue.innerHTML="Eats Bamboo Shoots"; break;
     case "pig":
-    clue.innerHTML="bath in the mud"; break;
+    clue.innerHTML="Bath in the mud"; break;
     case "hedgehog":
     clue.innerHTML="It is spikey"; break;
     case "rabbit":
@@ -51,7 +50,7 @@ switch(words){
 }
 
 function myFunction(){
-    if(selector.value===""){
+    if(selector.value==="" || selector.value===Number){
         alert("Please fill with letter")
     }
     for(var i=0; i<words.length; i++){
@@ -67,7 +66,7 @@ function myFunction(){
         resetgame()
     }
 
-    else if(nampungStripe.indexOf(selector.value)==-1 && selector.value!==""){
+    else if(nampungStripe.indexOf(selector.value)==-1 && selector.value!=="" && selector.value!==Number){
     image.src="Img/15292697.png";
     lives-=1
     str+=selector.value
@@ -87,12 +86,10 @@ function myFunction(){
     content.innerHTML=nampungStripeStr
     selector.value=""
         if(nampungStripeStr===words){
-            // content=document.getElementById("content")
-            // alert(nampungStripeStr)
-            // content.innerHTML=nampungStripeStr
+            status.innerHTML= "Correct!"
             image.src="Img/15292704.png";
-            alert("You win! The animal is "+ words +". "+ "Guess Next Animal!")
-            resetgame()       
+            reset.value="Continue"
+            // resetgame()       
         }
     
     }
@@ -100,6 +97,8 @@ function myFunction(){
 }
 
 function resetgame(){
+    reset.value="Reset Game"
+    image.src="Img/15292695.png"
     index=parseInt(Math.random()*allWords.length)
     words = allWords[index]
     str=""

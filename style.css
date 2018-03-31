@@ -10,10 +10,11 @@
 }
 
 input{
-    border: 2px solid #999;
+    border: 2px solid black;
 	font-family: Helvetica, sans-serif;
-	color: #999;
+	color:black;
 }
+
 
 #content{
     font-family: 'Roboto Slab', serif;
@@ -28,4 +29,8 @@ h1{
     float: right;
     padding-right: 150px;
     padding-top: 230px;
+}
+
+#continue{
+    margin-left: 195px;
 }
