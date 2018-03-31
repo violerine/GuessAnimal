@@ -49,7 +49,7 @@ switch(words){
 }
 
 function myFunction(){
-    if(selector.value==="" || selector.value===Number){
+    if(selector.value===""){
         alert("Please fill with letter")
     }
     for(var i=0; i<words.length; i++){
@@ -65,7 +65,7 @@ function myFunction(){
         resetgame()
     }
 
-    else if(nampungStripe.indexOf(selector.value)==-1 && selector.value!=="" && selector.value!==Number){
+    else if(nampungStripe.indexOf(selector.value)==-1 && selector.value!==""){
     image.src="Img/15292697.png";
     lives-=1
     str+=selector.value
