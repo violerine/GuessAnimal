@@ -95,6 +95,7 @@ function myFunction(){
 }
 
 function resetgame(){
+    selector.value=""
     reset.value="Reset Game"
     image.src="Img/15292695.png"
     index=parseInt(Math.random()*allWords.length)
